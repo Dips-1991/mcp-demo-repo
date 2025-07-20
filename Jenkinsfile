@@ -1,36 +1,36 @@
 pipeline {
     agent any
     stages {
-        stage('Checkout Dev Code') {
+        stage('Checkout Master Code') {
             steps {
-                checkout scm // Checks out the 'dev' branch code
+                checkout scm // Checks out the 'Master' branch code
             }
         }
-        stage('Build Dev') {
+        stage('Build Master') {
             steps {
-                echo 'Building application for dev environment...'
-                // Add your dev-specific build commands here
+                echo 'Building application for Master environment...'
+                // Add your Master-specific build commands here
             }
         }
-        stage('Run Dev Tests') {
+        stage('Run Master Tests') {
             steps {
-                echo 'Running tests for dev environment...'
-                // Add your dev-specific test commands here
+                echo 'Running tests for Master environment...'
+                // Add your Master-specific test commands here
             }
         }
-        stage('Deploy to Dev') {
+        stage('Deploy to Master') {
             steps {
-                echo 'Deploying to dev environment (e.g., dev server, QA)...'
-                // Add your dev-specific deployment commands here
+                echo 'Deploying to Master environment (e.g., Master server, QA)...'
+                // Add your Master-specific deployment commands here
             }
         }
     }
     post {
         always {
-            echo 'Dev pipeline finished.'
+            echo 'Master pipeline finished.'
         }
         failure {
-            echo 'Dev pipeline failed!'
+            echo 'Master pipeline failed!'
         }
     }
 }
