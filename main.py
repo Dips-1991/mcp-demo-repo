@@ -1,7 +1,4 @@
 import flask 
-import 
-
-import requests
 
 def main():
     app = flask.Flask(__name__)
