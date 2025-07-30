@@ -1,45 +1,36 @@
 pipeline {
     agent any
     stages {
-        stage('Checkout feature Code') {
+        stage('Checkout Master Code') {
             steps {
-                checkout scm // Checks out the 'feature' branch code
+                checkout scm // Checks out the 'Master' branch code
             }
         }
-        stage('Build feature') {
+        stage('Build Master') {
             steps {
-                echo 'Building application for featureuction environment...'
-                // Add your feature-specific build commands here
+                echo 'Building application for Master environment...'
+                // Add your Master-specific build commands here
             }
         }
-        stage('Run feature Critical Tests') {
+        stage('Run Master Tests') {
             steps {
-                echo 'Running critical tests for featureuction environment...'
-                // Add your feature-specific test commands here
+                echo 'Running tests for Master environment...'
+                // Add your Master-specific test commands here
             }
         }
-        // Example: Manual approval before featureuction deployment
-        stage('featureuction Approval') {
+        stage('Deploy to Master') {
             steps {
-                input message: 'Proceed with featureuction deployment?', ok: 'Deploy'
-            }
-        }
-        stage('Deploy to feature') {
-            steps {
-                echo 'Deploying to featureuction environment...'
-                // Add your feature-specific deployment commands here
+                echo 'Deploying to Master environment (e.g., Master server, QA)...'
+                // Add your Master-specific deployment commands here
             }
         }
     }
     post {
         always {
-            echo 'feature pipeline finished.'
+            echo 'Master pipeline finished.'
         }
         failure {
-            echo 'feature pipeline failed!'
-        }
-        success {
-            echo 'feature pipeline successfully deployed!'
+            echo 'Master pipeline failed!'
         }
     }
 }
